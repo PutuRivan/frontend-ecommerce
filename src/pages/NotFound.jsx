@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router";
+
 export default function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <>
       <main className="grid h-screen place-items-center bg-base-300 px-6 py-24 sm:py-32 lg:px-8">
@@ -11,12 +15,12 @@ export default function NotFound() {
             Sorry, we couldn’t find the page you’re looking for.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
+            <button
+              onClick={() => navigate("/")}
               className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               Go back home
-            </a>
+            </button>
           </div>
         </div>
       </main>

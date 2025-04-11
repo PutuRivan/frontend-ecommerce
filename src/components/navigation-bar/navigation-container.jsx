@@ -1,12 +1,13 @@
 import React from "react";
 import { InputSeach } from "./input-search";
 import { DropdownLink } from "./dropdown-link";
+import { Link } from "react-router";
 
 export const Navbar = () => {
   return (
     <div className="navbar bg-base-200 shadow-sm border-b border-base-300">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Ecommerce</a>
+        <Link to="/" className="btn btn-ghost text-xl">Ecommerce</Link>
       </div>
       <div className="flex gap-2">
         <InputSeach />
