@@ -1,8 +1,7 @@
 import React from "react";
+import { DeleteButton } from "../delete-button";
 
-export const ProductCard = ({ title, description }) => {
-  console.log(title);
-  console.log(description);
+export const ProductCard = ({ id, title, description }) => {
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure>
@@ -16,6 +15,7 @@ export const ProductCard = ({ title, description }) => {
         <p>{description}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Buy Now</button>
+          <DeleteButton id={id} />
         </div>
       </div>
     </div>

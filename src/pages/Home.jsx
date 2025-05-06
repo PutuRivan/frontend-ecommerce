@@ -3,30 +3,31 @@ import { ProductCard } from "../components/card/product-card";
 
 export const Home = () => {
   const [Data, setData] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/products");
-      const data = await response.json();
-      // console.log(data);
-      setData(data);
+      try {
+        const response = await fetch("http://localhost:3000/users/all");
+        const data = await response.json();
+        console.log(data)
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
+
     fetchData();
   }, []);
-
   return (
     <>
       <div className="grid grid-cols-3 place-items-center gap-y-5 mt-5">
-        {Data.map((data, index) => {
-          console.log(data);
-          return (
-            <ProductCard
-              key={index}
-              title={data.name}
-              description={data.description}
-            />
-          );
-        })}
+        {Data.map((data, index) => (
+          <ProductCard
+            id={data.id}
+            key={index}
+            title={data.name}
+            description={data.description}
+          />
+        ))}
       </div>
     </>
   );
